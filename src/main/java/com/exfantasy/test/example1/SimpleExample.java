@@ -1,4 +1,4 @@
-package com.exfantasy.test;
+package com.exfantasy.test.example1;
 import static org.quartz.DateBuilder.evenMinuteDate;
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;

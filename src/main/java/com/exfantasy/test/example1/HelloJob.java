@@ -1,4 +1,4 @@
-package com.exfantasy.test;
+package com.exfantasy.test.example1;
 /* 
  * All content copyright Terracotta, Inc., unless otherwise indicated. All rights reserved. 
  * 
