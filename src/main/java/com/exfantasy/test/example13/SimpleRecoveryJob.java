@@ -25,6 +25,7 @@ import org.quartz.JobKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -39,6 +40,8 @@ public class SimpleRecoveryJob implements Job {
   private static Logger       _log  = LoggerFactory.getLogger(SimpleRecoveryJob.class);
 
   private static final String COUNT = "count";
+  
+  private static final SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
 
   /**
    * Quartz requires a public empty constructor so that the scheduler can instantiate the class whenever it needs.
@@ -60,9 +63,9 @@ public class SimpleRecoveryJob implements Job {
 
     // if the job is recovering print a message
     if (context.isRecovering()) {
-      _log.info("SimpleRecoveryJob: " + jobKey + " RECOVERING at " + new Date());
+      _log.info("SimpleRecoveryJob: " + jobKey + " RECOVERING at " + dtFormat.format(new Date()));
     } else {
-      _log.info("SimpleRecoveryJob: " + jobKey + " starting at " + new Date());
+      _log.info("SimpleRecoveryJob: " + jobKey + " starting at " + dtFormat.format(new Date()));
     }
 
     // delay for ten seconds
@@ -83,7 +86,7 @@ public class SimpleRecoveryJob implements Job {
     count++;
     data.put(COUNT, count);
 
-    _log.info("SimpleRecoveryJob: " + jobKey + " done at " + new Date() + "\n Execution #" + count);
+    _log.info("SimpleRecoveryJob: " + jobKey + " done at " + dtFormat.format(new Date()) + "-> Execution #" + count);
 
   }
 
