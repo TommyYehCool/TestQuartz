@@ -137,7 +137,7 @@ public class ClusterExample {
           .build();
 
       trigger = newTrigger().withIdentity("triger_" + count, schedId).startAt(futureDate(1, IntervalUnit.SECOND))
-          .withSchedule(simpleSchedule().withRepeatCount(5).withIntervalInSeconds(5)).build();
+          .withSchedule(simpleSchedule().withRepeatCount(10).withIntervalInSeconds(5)).build();
 
       _log.info(job.getKey() + " will run at: " + trigger.getNextFireTime() + " and repeat: "
                 + trigger.getRepeatCount() + " times, every " + trigger.getRepeatInterval() / 1000 + " seconds");
@@ -154,7 +154,7 @@ public class ClusterExample {
           .build();
 
       trigger = newTrigger().withIdentity("triger_" + count, schedId).startAt(futureDate(1, IntervalUnit.SECOND))
-          .withSchedule(simpleSchedule().withRepeatCount(5).withIntervalInSeconds(5)).build();
+          .withSchedule(simpleSchedule().withRepeatCount(10).withIntervalInSeconds(5)).build();
 
       _log.info(job.getKey() + " will run at: " + trigger.getNextFireTime() + " & repeat: " + trigger.getRepeatCount()
                 + "/" + trigger.getRepeatInterval());
